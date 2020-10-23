@@ -15,10 +15,25 @@ router.get("/api/workouts", (req, res) => {
       res.json({
         error: true,
         data: null,
-        message: "Failed to retrieve workouts.",
+        message: "Failed to find workouts.",
       });
     });
 });
+
+router.post("/api/workouts", (req, res) => {
+    db.Workout.create(req.body)
+      .then((newWorkout) => {
+        res.json(newWorkout);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.json({
+          error: true,
+          data: null,
+          message: "Failed to add new workout.",
+        });
+      });
+  });
 
 
 module.exports = router;
