@@ -64,7 +64,7 @@ router.post("/api/workouts", (req, res) => {
         res.json({
           error: true,
           data: null,
-          message: "Failed to retrieve workout stats.",
+          message: "Failed to retrieve workout.",
         });
       });
   });
